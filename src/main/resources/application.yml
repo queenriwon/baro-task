@@ -2,7 +2,7 @@ spring:
   application:
     name: BaroTask
   datasource:
-    url: jdbc:mysql://${DB_HOST}:3306/expert?rewriteBatchedStatements=true&characterEncoding=UTF-8&profileSQL=true&logger=Slf4JLogger&maxQuerySizeToLog=200
+    url: jdbc:mysql://${DB_HOST}:3306/barotask?rewriteBatchedStatements=true&characterEncoding=UTF-8&profileSQL=true&logger=Slf4JLogger&maxQuerySizeToLog=200
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
   jpa:
