@@ -2,6 +2,9 @@ package com.example.barotask.domain.user.entity;
 
 import com.example.barotask.global.entity.TimeStamped;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,5 +33,14 @@ public class Users extends TimeStamped {
         this.nickname = nickname;
         this.password = password;
         this.userRole = userRole;
+    }
+
+    public static Users of(String email, String nickname, String password, UserRole userRole) {
+        return Users.builder()
+                .email(email)
+                .nickname(nickname)
+                .password(password)
+                .userRole(userRole)
+                .build();
     }
 }
