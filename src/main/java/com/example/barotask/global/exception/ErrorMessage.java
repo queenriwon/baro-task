@@ -14,6 +14,7 @@ public enum ErrorMessage {
 
     ACCESS_DENIED("요청하신 작업을 수행할 권한이 없습니다."),
     USER_NOT_FOUND("존재하지 않는 사용자입니다."),
+    REQUIRED_TOKEN("토큰이 필요합니다."),
     INVALID_TOKEN("유효하지 않은 토큰입니다."),
     EXPIRED_TOKEN("사용이 만료된 토큰입니다."),
 

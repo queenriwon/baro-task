@@ -1,12 +1,12 @@
 package com.example.barotask.domain.user.service;
 
+import com.example.barotask.config.PasswordEncoder;
 import com.example.barotask.domain.auth.dto.request.AuthSignUpRequest;
 import com.example.barotask.domain.user.entity.UserRole;
 import com.example.barotask.domain.user.entity.Users;
 import com.example.barotask.domain.user.repository.UsersRepository;
 import com.example.barotask.global.exception.BadRequestException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import static com.example.barotask.global.exception.ErrorMessage.DUPLICATE_EMAIL;
