@@ -22,6 +22,10 @@ public class AdminInterceptor implements HandlerInterceptor {
             HttpServletResponse response,
             Object handler) throws Exception {
 
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
+
         HandlerMethod handlerMethod = (HandlerMethod) handler;
 
         AuthPermission authPermission = handlerMethod.getMethodAnnotation(AuthPermission.class);
