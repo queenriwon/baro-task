@@ -4,7 +4,7 @@ import com.example.barotask.config.PasswordEncoder;
 import com.example.barotask.domain.auth.dto.request.AuthSignUpRequest;
 import com.example.barotask.domain.user.entity.UserRole;
 import com.example.barotask.domain.user.entity.Users;
-import com.example.barotask.domain.user.repository.UsersRepository;
+import com.example.barotask.domain.user.repository.UserRepository;
 import com.example.barotask.global.exception.BadRequestException;
 import com.example.barotask.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +15,9 @@ import static com.example.barotask.global.exception.ErrorMessage.EMAIL_NOT_FOUND
 
 @Service
 @RequiredArgsConstructor
-public class UsersService {
+public class UserService {
 
-    private final UsersRepository usersRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     public Users saveUsers(AuthSignUpRequest request) {
@@ -29,17 +29,17 @@ public class UsersService {
         String encodedPassword = passwordEncoder.encode(request.password());
 
         Users users = Users.of(request.email(), request.nickname(), encodedPassword, UserRole.of(request.userRole()));
-        usersRepository.save(users);
+        userRepository.save(users);
 
         return users;
     }
 
     private boolean existsByEmail(String email) {
-        return usersRepository.existsByEmail(email);
+        return userRepository.existsByEmail(email);
     }
 
     public Users findByEmailOrElseThrow(String email) {
-        return usersRepository.findByEmail(email)
+        return userRepository.findByEmail(email)
                 .orElseThrow(() -> new NotFoundException(EMAIL_NOT_FOUND));
     }
 }

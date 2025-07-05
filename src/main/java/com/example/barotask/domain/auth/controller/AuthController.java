@@ -3,7 +3,7 @@ package com.example.barotask.domain.auth.controller;
 import com.example.barotask.domain.auth.dto.request.AuthSignInRequest;
 import com.example.barotask.domain.auth.dto.request.AuthSignUpRequest;
 import com.example.barotask.domain.auth.dto.response.AuthTokenResponse;
-import com.example.barotask.domain.user.dto.response.UsersResponse;
+import com.example.barotask.domain.user.dto.response.UserResponse;
 import com.example.barotask.domain.auth.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class AuthController {
 
     /* 회원가입 */
     @PostMapping("/sign-up")
-    public ResponseEntity<UsersResponse> signUp (
+    public ResponseEntity<UserResponse> signUp (
             @Valid @RequestBody AuthSignUpRequest authSignUpRequest
     ) {
         return ResponseEntity.ok(authService.signUp(authSignUpRequest));
