@@ -1,4 +1,4 @@
-package com.example.barotask.domain.auth.dto.response;
+package com.example.barotask.domain.user.dto.response;
 
 import com.example.barotask.domain.user.entity.UserRole;
 import com.example.barotask.domain.user.entity.Users;

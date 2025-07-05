@@ -2,7 +2,8 @@ package com.example.barotask.domain.auth.controller;
 
 import com.example.barotask.domain.auth.dto.request.AuthSignInRequest;
 import com.example.barotask.domain.auth.dto.request.AuthSignUpRequest;
-import com.example.barotask.domain.auth.dto.response.UsersResponse;
+import com.example.barotask.domain.auth.dto.response.AuthTokenResponse;
+import com.example.barotask.domain.user.dto.response.UsersResponse;
 import com.example.barotask.domain.auth.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class AuthController {
 
     /* 로그인 */
     @PostMapping("/sign-in")
-    public ResponseEntity<UsersResponse> signIn (
+    public ResponseEntity<AuthTokenResponse> signIn (
             @Valid @RequestBody AuthSignInRequest authSignInRequest
     ) {
         return ResponseEntity.ok(authService.signIn(authSignInRequest));
