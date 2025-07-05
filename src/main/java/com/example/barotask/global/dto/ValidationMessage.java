@@ -16,7 +16,7 @@ public final class ValidationMessage {
     public static final String INVALID_NICKNAME = "유효하지 않은 닉네임 형식입니다.";
     public static final String INVALID_PASSWORD = "유효하지 않은 비밀번호 형식입니다.";
 
-    public static final String PATTERN_PASSWORD_REGEXP = "^(?=.*\\d).{8,}$\n";
+    public static final String PATTERN_PASSWORD_REGEXP = "^(?=.*\\d).{8,}$";
 
 
 }

@@ -1,9 +1,6 @@
 package com.example.barotask.domain.auth.dto.request;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.Builder;
 
 import static com.example.barotask.global.dto.ValidationMessage.*;
@@ -15,7 +12,7 @@ public record AuthSignUpRequest(
         String email,
 
         @NotBlank(message = NICKNAME_REQUIRED)
-        @Max(value = 8, message = INVALID_NICKNAME)
+        @Size(max = 8, message = INVALID_NICKNAME)
         String nickname,
 
         @NotBlank(message = PASSWORD_REQUIRED)
@@ -29,11 +26,6 @@ public record AuthSignUpRequest(
         String userRole
 ) {
     @Builder
-    public AuthSignUpRequest(String email, String nickname, String password, String passwordCheck, String userRole) {
-        this.email = email;
-        this.nickname = nickname;
-        this.password = password;
-        this.passwordCheck = passwordCheck;
-        this.userRole = userRole;
+    public AuthSignUpRequest {
     }
 }
