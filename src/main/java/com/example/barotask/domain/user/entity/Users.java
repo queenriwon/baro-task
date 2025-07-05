@@ -2,9 +2,6 @@ package com.example.barotask.domain.user.entity;
 
 import com.example.barotask.global.entity.TimeStamped;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,5 +39,9 @@ public class Users extends TimeStamped {
                 .password(password)
                 .userRole(userRole)
                 .build();
+    }
+
+    public void updateRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 }

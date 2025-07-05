@@ -14,6 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final AuthUserArgumentResolver authUserArgumentResolver;
     private final JwtInterceptor jwtInterceptor;
+    private final AdminInterceptor adminInterceptor;
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
@@ -23,6 +24,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
+                .addPathPatterns("/**");
+        registry.addInterceptor(adminInterceptor)
                 .addPathPatterns("/**");
     }
 }
