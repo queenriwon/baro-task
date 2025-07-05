@@ -6,7 +6,6 @@ import com.example.barotask.global.dto.AuthUserDto;
 import com.example.barotask.global.exception.ErrorMessage;
 import com.example.barotask.global.exception.UnauthorizedException;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
