@@ -1,24 +1,29 @@
 package com.example.barotask.domain.user.entity;
 
+import com.example.barotask.global.exception.UnauthorizedException;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Arrays;
+
+import static com.example.barotask.global.exception.ErrorMessage.INVALID_ROLE;
 
 @Getter
-public enum UserRole implements GrantedAuthority {
+public enum UserRole{
 
-    ROLE_USER("USER"),
-    ROLE_ADMIN("ADMIN");
+    ROLE_USER("ROLE_USER"),
+    ROLE_ADMIN("ROLE_ADMIN");
 
     private final String userRole;
 
-    UserRole(String userRole) {
-        this.userRole = userRole;
+    public static UserRole of(String role) {
+        return Arrays.stream(UserRole.values())
+                .filter(r -> r.getUserRole().equalsIgnoreCase(role))
+                .findFirst()
+                .orElseThrow(() -> new UnauthorizedException(INVALID_ROLE));
     }
 
-    @Override
-    public String getAuthority() {
-        return userRole;
+    UserRole(String userRole) {
+        this.userRole = userRole;
     }
 }
 

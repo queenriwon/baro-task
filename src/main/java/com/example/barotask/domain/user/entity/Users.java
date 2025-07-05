@@ -31,4 +31,17 @@ public class Users extends TimeStamped {
         this.password = password;
         this.userRole = userRole;
     }
+
+    public static Users of(String email, String nickname, String password, UserRole userRole) {
+        return Users.builder()
+                .email(email)
+                .nickname(nickname)
+                .password(password)
+                .userRole(userRole)
+                .build();
+    }
+
+    public void updateRole(UserRole userRole) {
+        this.userRole = userRole;
+    }
 }
